@@ -18,7 +18,7 @@ public class ContaFileDaoImpl implements ContaFileDao{
 
     @Override
     public void preparaArquivo(String tipoConta) {
-        try (Stream<String> streamLinhas = Files.lines(Path.of(tipoConta+".txt"))) {
+        try (Stream<String> streamLinhas = Files.lines(Path.of("src\\main\\"+tipoConta+".txt"))) {
             registroLinhas = streamLinhas
                     .filter(Predicate.not(String::isEmpty))
                     .map(Conta::new)
@@ -31,7 +31,7 @@ public class ContaFileDaoImpl implements ContaFileDao{
     @Override
     public void gravaArquivo(Conta conta) {
         String tipoConta = conta.getTipoConta();
-        var leArquivo = new File(tipoConta+".txt");
+        var leArquivo = new File("src\\main\\"+tipoConta+".txt");
         Conta conteudo;
         try{
             var arquivo = new FileWriter (leArquivo, false);

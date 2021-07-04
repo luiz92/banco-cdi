@@ -18,7 +18,7 @@ public class UsuarioFileFileDaoImpl implements UsuarioFileDao {
 
     @Override
     public void preparaArquivo() {
-        try (Stream<String> streamLinhas = Files.lines(Path.of("Usuarios.txt"))) {
+        try (Stream<String> streamLinhas = Files.lines(Path.of("src\\main\\Usuarios.txt"))) {
             registroLinhas = streamLinhas
                     .filter(Predicate.not(String::isEmpty))
                     .map(Usuario::new)
@@ -30,7 +30,7 @@ public class UsuarioFileFileDaoImpl implements UsuarioFileDao {
 
     @Override
     public void gravaArquivo(){
-        var leArquivo = new File("Usuarios.txt");
+        var leArquivo = new File("src\\main\\Usuarios.txt");
         Usuario conteudo;
         try{
             var arquivo = new FileWriter (leArquivo, false);
