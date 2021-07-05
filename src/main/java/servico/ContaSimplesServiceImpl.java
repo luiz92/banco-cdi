@@ -41,7 +41,7 @@ public class ContaSimplesServiceImpl extends Conta implements ContaService{
         }
 
         System.out.println("====================");
-        System.out.println("Saldo atual: " + conta.getSaldo());
+        System.out.printf("Saldo atual: R$%.2f %n", conta.getSaldo());
         System.out.println("====================");
     }
 

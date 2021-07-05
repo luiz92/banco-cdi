@@ -42,7 +42,7 @@ public class ContaEspecialServiceImpl extends Conta implements ContaService{
         }
 
         System.out.println("====================");
-        System.out.println("Saldo atual: " + conta.getSaldo());
+        System.out.printf("Saldo atual: R$%.2f %n", conta.getSaldo());
         System.out.println("====================");
     }
 
@@ -56,7 +56,7 @@ public class ContaEspecialServiceImpl extends Conta implements ContaService{
         getContaFileDao().alterarConta(tipoConta, conta);
 
         System.out.println("====================");
-        System.out.println("Saldo atualizado: " + conta.getSaldo());
+        System.out.printf("Saldo atualizado: R$%.2f %n", conta.getSaldo());
         System.out.println("====================");
         return conta;
     }
