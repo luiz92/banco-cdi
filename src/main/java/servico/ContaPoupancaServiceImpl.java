@@ -36,14 +36,14 @@ public class ContaPoupancaServiceImpl extends Conta implements ContaService{
         var newValor = conta.getSaldo().subtract(valor).subtract(valorTaxado);
 
          if(newValor.compareTo(BigDecimal.valueOf(0)) < 0){
-            System.out.println("Valor insuficiente para saque");
+            System.out.println("Valor insuficiente para saque!");
         } else {
             conta.setSaldo(newValor);
             getContaFileDao().alterarConta(tipoConta, conta);
         }
         System.out.println("====================");
         System.out.printf("Taxa de serviço: R$%.2f %n", valorTaxado);
-        System.out.printf("Saldo atual: R$%.2f %n", conta.getSaldo());
+        System.out.printf("Saldo atualizado: R$%.2f %n", conta.getSaldo());
         System.out.println("====================");
     }
 
@@ -60,7 +60,7 @@ public class ContaPoupancaServiceImpl extends Conta implements ContaService{
 
         System.out.println("====================");
         System.out.printf("Taxa de serviço: R$%.2f %n", valorTaxado);
-        System.out.printf("Saldo atual: R$%.2f %n", conta.getSaldo());
+        System.out.printf("Saldo atualizado: R$%.2f %n", conta.getSaldo());
         System.out.println("====================");
         return conta;
     }
